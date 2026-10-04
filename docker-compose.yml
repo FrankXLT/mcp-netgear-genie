@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  mcp-netgear-genie:
+    build: .
+    container_name: mcp-netgear-genie
+    restart: unless-stopped
+    environment:
+      - NETGEAR_HOST=${NETGEAR_HOST:-http://192.168.100.1}
+      - NETGEAR_USERNAME=${NETGEAR_USERNAME:-admin}
+      - NETGEAR_PASSWORD=${NETGEAR_PASSWORD:-password}
+      - NETGEAR_PORT=8000
+    ports:
+      - "8000:8000"

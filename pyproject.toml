@@ -1,0 +1,67 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "mcp-netgear-genie"
+version = "0.1.0"
+description = "Model Context Protocol (MCP) server for Netgear Genie cable modems (CM1000/DOCSIS 3.1)"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [
+    { name = "Frank Katzenberger", email = "frank.katzenberger@gmail.com" }
+]
+keywords = [
+    "mcp",
+    "model-context-protocol",
+    "netgear",
+    "genie",
+    "docsis",
+    "docsis-3-1",
+    "cable-modem",
+    "cm1000",
+    "rf-health",
+    "telemetry",
+    "network-monitoring"
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: System Administrators",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Topic :: System :: Networking :: Monitoring",
+    "Topic :: Home Automation"
+]
+dependencies = [
+    "mcp>=1.0.0",
+    "httpx>=0.27.0",
+    "beautifulsoup4>=4.12.0",
+    "lxml>=5.0.0",
+    "pydantic>=2.0.0",
+    "rich>=13.0.0"
+]
+
+[project.urls]
+Homepage = "https://github.com/FrankXLT/mcp-netgear-genie"
+Repository = "https://github.com/FrankXLT/mcp-netgear-genie.git"
+Issues = "https://github.com/FrankXLT/mcp-netgear-genie/issues"
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-asyncio>=0.21.0"
+]
+
+[project.scripts]
+mcp-netgear-genie = "mcp_netgear_genie.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/mcp_netgear_genie"]
